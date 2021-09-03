@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Image, Text, ScrollView, FlatList} from 'react-native';
+import {View, Image, Text, FlatList} from 'react-native';
 /* import {Hero} from '../types/hero.types'; */
 
 import {styles} from '../styles/heroList';
 
-const Element = ({item}) => (
+const Element = ({item}, {navigation}) => (
   <View key={item.id} style={styles.results}>
     <Text style={styles.id}>{item.id}</Text>
     <Image
@@ -19,9 +19,10 @@ const Element = ({item}) => (
 
 export default function HeroList({hero}) {
   return (
-    <ScrollView style={styles.container}>
+    <>
       {hero.length > 0 ? (
         <FlatList
+          style={styles.container}
           data={hero}
           renderItem={({item}) => <Element item={item} />}
           keyExtractor={item => item.id}
@@ -29,6 +30,6 @@ export default function HeroList({hero}) {
       ) : (
         <Text style={styles.noResult}>No results</Text>
       )}
-    </ScrollView>
+    </>
   );
 }

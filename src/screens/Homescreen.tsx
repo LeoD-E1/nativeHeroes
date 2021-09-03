@@ -4,7 +4,7 @@ import {styles} from '../styles/homescreen';
 import SearchBar from '../components/SearchBar';
 import {HeroContext} from '../context/Heroes/HeroState';
 
-export default function Homescreen() {
+export default function Homescreen({navigation}) {
   const {getHeroes} = useContext(HeroContext);
 
   useEffect(() => {

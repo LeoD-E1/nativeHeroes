@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 export default function HeroProfile() {
   return (
     <View>
-      <Text>Hello</Text>
+      <Text>Hello HeroProfile here!</Text>
     </View>
   );
 }

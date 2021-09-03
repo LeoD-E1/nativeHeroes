@@ -12,7 +12,10 @@ export default function SearchBar() {
   const findMatches = (nameToSearch: string) => {
     return heroes.filter((character: Hero) => {
       const regex = new RegExp(nameToSearch, 'gi');
-      return character.biography.aliases[0].match(regex);
+      return (
+        character.biography.aliases[0].match(regex) ||
+        character.biography.fullName.match(regex)
+      );
     });
   };
 
