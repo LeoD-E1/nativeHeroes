@@ -5,8 +5,9 @@ import {HeroContext} from '../context/Heroes/HeroState';
 import {Hero} from '../types/hero.types';
 import HeroList from './HeroList';
 
-export default function SearchBar() {
+export default function SearchBar({navigation}) {
   const {heroes} = useContext(HeroContext);
+
   const [hero, setHero] = useState<Hero[]>();
 
   const findMatches = (nameToSearch: string) => {
@@ -36,7 +37,7 @@ export default function SearchBar() {
           autoCorrect
         />
       </View>
-      {hero && <HeroList hero={hero} />}
+      {hero && <HeroList hero={hero} navigation={navigation} />}
     </>
   );
 }

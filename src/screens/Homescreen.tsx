@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView} from 'react-native';
 import {styles} from '../styles/homescreen';
 import SearchBar from '../components/SearchBar';
 import {HeroContext} from '../context/Heroes/HeroState';
@@ -14,8 +14,7 @@ export default function Homescreen({navigation}) {
 
   return (
     <ScrollView style={styles.container}>
-      <SearchBar />
-      <Text>Holas</Text>
+      <SearchBar navigation={navigation} />
     </ScrollView>
   );
 }

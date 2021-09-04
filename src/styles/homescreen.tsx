@@ -5,4 +5,10 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingVertical: 20,
   },
+  tabs: {
+    position: 'relative',
+    bottom: 0,
+    flex: 1,
+    alignItems: 'flex-end',
+  },
 });

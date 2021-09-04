@@ -25,17 +25,13 @@ const HeroState = ({children}) => {
     }
   };
 
-  const getHeroProfile = async (id: number) => {
-    try {
-      const {data} = await axiosTool.get(`/id/${id}.json`);
-      const hero: Hero = data;
-      dispatch({
-        type: 'GET_HERO_PROFILE',
-        payload: hero,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  const getHeroProfile = (id: number) => {
+    const hero: Hero = state.heroes.filter((item: Hero) => item.id === id);
+
+    dispatch({
+      type: 'GET_HERO_PROFILE',
+      payload: hero,
+    });
   };
 
   return (
