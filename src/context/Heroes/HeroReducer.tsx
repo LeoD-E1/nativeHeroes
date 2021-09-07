@@ -12,7 +12,7 @@ export default (state, action) => {
     case GET_HERO_PROFILE:
       return {
         ...state,
-        selectHero: payload,
+        selectedHero: payload,
       };
     default:
       return state;

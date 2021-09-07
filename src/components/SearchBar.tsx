@@ -1,11 +1,12 @@
 import React, {useContext, useState} from 'react';
-import {View, TextInput} from 'react-native';
+import {View, TextInput, FlatList} from 'react-native';
 import {styles} from '../styles/searchBar';
 import {HeroContext} from '../context/Heroes/HeroState';
 import {Hero} from '../types/hero.types';
-import HeroList from './HeroList';
+import Element from './Element';
+import Spinner from '../components/Spinner';
 
-export default function SearchBar({navigation}) {
+export default function SearchBar({navigation}: any) {
   const {heroes} = useContext(HeroContext);
 
   const [hero, setHero] = useState<Hero[]>();
@@ -37,7 +38,15 @@ export default function SearchBar({navigation}) {
           autoCorrect
         />
       </View>
-      {hero && <HeroList hero={hero} navigation={navigation} />}
+      {hero && (
+        <FlatList
+          style={styles.listContainer}
+          data={hero}
+          renderItem={({item}) => (
+            <Element item={item} navigation={navigation} />
+          )}
+        />
+      )}
     </>
   );
 }

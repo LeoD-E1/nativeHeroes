@@ -54,3 +54,11 @@ export interface Hero {
   connections: Connections;
   images: Images;
 }
+
+export interface Heroes {
+  heroes: Hero[];
+  selectedHero: Hero[] | null;
+  selectedTeam: Hero[] | null;
+  favorites: Hero[];
+  teams: Hero[];
+}

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Image, Text, Pressable} from 'react-native';
 import {HeroContext} from '../context/Heroes/HeroState';
-import {styles} from '../styles/heroList';
+import {styles} from '../styles/searchBar';
 
 //Lo que renderiza la flatlist de herolist
 

@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     paddingVertical: 20,
+    borderRadius: 30,
   },
   tabs: {
     position: 'relative',

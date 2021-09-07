@@ -1,14 +1,22 @@
 import React, {useReducer, createContext} from 'react';
 import HeroReducer from './HeroReducer';
 import {axiosTool} from '../../helpers/axios';
-import {Hero} from '../../types/hero.types';
+import {Hero, Heroes} from '../../types/hero.types';
 
-export const HeroContext = createContext();
+export const HeroContext = createContext(null);
 
-const HeroState = ({children}) => {
-  let initialState = {
+const HeroState = ({children}: any) => {
+  let initialState: Heroes = {
     heroes: [],
     selectedHero: null,
+    selectedTeam: null,
+    favorites: [],
+    teams: {
+      name: '',
+      members: [],
+      limit: 6,
+      image: '',
+    },
   };
   const [state, dispatch] = useReducer(HeroReducer, initialState);
 
@@ -25,13 +33,17 @@ const HeroState = ({children}) => {
     }
   };
 
-  const getHeroProfile = (id: number) => {
-    const hero: Hero = state.heroes.filter((item: Hero) => item.id === id);
-
-    dispatch({
-      type: 'GET_HERO_PROFILE',
-      payload: hero,
-    });
+  const getHeroProfile = async (id: number) => {
+    try {
+      const target = state.heroes.filter((item: Hero) => item.id === id);
+      const hero: Hero = target;
+      dispatch({
+        type: 'GET_HERO_PROFILE',
+        payload: hero,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
