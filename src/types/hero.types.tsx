@@ -60,5 +60,5 @@ export interface Heroes {
   selectedHero: Hero[] | null;
   selectedTeam: Hero[] | null;
   favorites: Hero[];
-  teams: Hero[];
+  teams: {};
 }

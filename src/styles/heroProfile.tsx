@@ -15,9 +15,19 @@ export const styles = StyleSheet.create({
     height: 300,
     width: '100%',
     backgroundColor: '#fff',
-    borderRadius: 20,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
     position: 'absolute',
     bottom: 0,
+  },
+  headerDescription: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    position: 'absolute',
+    right: 0,
   },
   title: {
     fontWeight: 'bold',

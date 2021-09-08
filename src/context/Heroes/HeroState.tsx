@@ -11,12 +11,7 @@ const HeroState = ({children}: any) => {
     selectedHero: null,
     selectedTeam: null,
     favorites: [],
-    teams: {
-      name: '',
-      members: [],
-      limit: 6,
-      image: '',
-    },
+    teams: {},
   };
   const [state, dispatch] = useReducer(HeroReducer, initialState);
 
@@ -46,13 +41,30 @@ const HeroState = ({children}: any) => {
     }
   };
 
+  const addToFavorites = async (id: number) => {
+    try {
+      const target = state.heroes.filter((item: Hero) => item.id === id);
+      const hero: Hero = target;
+      dispatch({
+        type: 'ADD_TO_FAVORITES',
+        payload: hero,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <HeroContext.Provider
       value={{
         heroes: state.heroes,
         selectedHero: state.selectedHero,
+        selectedTeam: state.selectedTeam,
+        favorites: state.favorites,
+        teams: state.teams,
         getHeroes,
         getHeroProfile,
+        addToFavorites,
       }}>
       {children}
     </HeroContext.Provider>
