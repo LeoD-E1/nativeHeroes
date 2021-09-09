@@ -5,15 +5,36 @@ import {
   Text,
   Button,
   TextInput,
-  Avatar,
   Subheading,
 } from 'react-native-paper';
 import {styles} from '../styles/modal.styles';
+import {Hero} from '../types/hero.types';
 import {useSelector} from 'react-redux';
+import SearchBar from './SearchBar';
+import {Image, View, ScrollView} from 'react-native';
 
-const ModalCreateTeam = () => {
+const ModalCreateTeam = ({navigation}: any) => {
   const [visible, setVisible] = React.useState(false);
-  const {heroes} = useSelector(state => state.heroes);
+  const {members} = useSelector(state => state.teams);
+
+  const goods = members.filter(
+    (item: Hero) => item.biography.alignment === 'good',
+  );
+
+  const bads = members.filter(
+    (item: Hero) => item.biography.alignment === 'bad',
+  );
+
+  const image = (item: Hero) => (
+    <View key={item.id}>
+      <Image
+        style={styles.image}
+        source={{
+          uri: `${item.images.md}`,
+        }}
+      />
+    </View>
+  );
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
@@ -28,12 +49,18 @@ const ModalCreateTeam = () => {
           <TextInput
             mode="outlined"
             label="Team Name"
-            placeholder="Write a name "
+            placeholder="Write a name"
             right={<TextInput.Affix text="/100" />}
           />
+          <SearchBar screen="Modal" />
           <Subheading>Goods</Subheading>
-
+          <ScrollView horizontal>
+            {goods.map((item: Hero) => image(item))}
+          </ScrollView>
           <Subheading>Bads</Subheading>
+          <ScrollView horizontal>
+            {bads.map((item: Hero) => image(item))}
+          </ScrollView>
         </Modal>
       </Portal>
       <Button style={styles.button} onPress={showModal}>

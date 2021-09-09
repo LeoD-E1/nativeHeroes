@@ -2,9 +2,9 @@ import React from 'react';
 import {Image, Text, Pressable, View} from 'react-native';
 import {styles} from '../styles/searchBar';
 import {useDispatch} from 'react-redux';
-import {getHeroID} from '../store/heroSlice';
+import {addMembers} from '../store/teamSlice';
 
-const ModalList = ({item, navigation}: any) => {
+const ModalList = ({item}: any) => {
   const dispatch = useDispatch();
 
   return (
@@ -12,7 +12,7 @@ const ModalList = ({item, navigation}: any) => {
       key={item.id}
       style={styles.results}
       onPress={() => {
-        dispatch(getHeroID(item.id));
+        dispatch(addMembers(item));
       }}>
       {item.biography.alignment === 'good' ? (
         <View style={styles.alignmentGood} />

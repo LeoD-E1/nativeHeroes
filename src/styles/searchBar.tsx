@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
   },
   inputContainer: {
+    marginVertical: 10,
     marginHorizontal: 10,
     height: 50,
   },
