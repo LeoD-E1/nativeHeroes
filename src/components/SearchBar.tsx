@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import {View, TextInput, FlatList} from 'react-native';
+import {View, TextInput} from 'react-native';
 import {styles} from '../styles/searchBar';
 
 import {Hero} from '../types/hero.types';
-import Element from './Element';
+import HeroList from './HeroList';
+
 import {useSelector} from 'react-redux';
 
-export default function SearchBar({navigation}: any) {
+export default function SearchBar({navigation, screen}: any) {
   const {heroes} = useSelector(state => state.heroes);
 
   const [hero, setHero] = useState<Hero[]>();
@@ -38,15 +39,7 @@ export default function SearchBar({navigation}: any) {
           autoCorrect
         />
       </View>
-      {hero && (
-        <FlatList
-          style={styles.listContainer}
-          data={hero}
-          renderItem={({item}) => (
-            <Element item={item} navigation={navigation} />
-          )}
-        />
-      )}
+      {hero && <HeroList screen={screen} hero={hero} navigation={navigation} />}
     </>
   );
 }

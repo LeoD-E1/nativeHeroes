@@ -4,7 +4,7 @@ import {styles} from '../styles/searchBar';
 import {useDispatch} from 'react-redux';
 import {getHeroID} from '../store/heroSlice';
 
-const Element = ({item, navigation}: any) => {
+const ModalList = ({item, navigation}: any) => {
   const dispatch = useDispatch();
 
   return (
@@ -13,7 +13,6 @@ const Element = ({item, navigation}: any) => {
       style={styles.results}
       onPress={() => {
         dispatch(getHeroID(item.id));
-        navigation.navigate('Profile');
       }}>
       {item.biography.alignment === 'good' ? (
         <View style={styles.alignmentGood} />
@@ -31,4 +30,4 @@ const Element = ({item, navigation}: any) => {
   );
 };
 
-export default Element;
+export default ModalList;

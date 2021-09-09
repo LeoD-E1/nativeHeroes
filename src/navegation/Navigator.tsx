@@ -23,8 +23,8 @@ export default function Navigator() {
               iconName = focused ? 'home' : 'home-outline';
             } else if (route.name === 'Search') {
               iconName = focused ? 'search' : 'search-outline';
-            } else if (route.name === 'Create-team') {
-              iconName = focused ? 'add-circle-sharp' : 'add';
+            } else if (route.name === 'Teams') {
+              iconName = focused ? 'shirt' : 'shirt-outline';
             }
 
             // You can return any component that you like here!
@@ -43,7 +43,7 @@ export default function Navigator() {
           component={ProfileStack}
           options={{headerShown: false}}
         />
-        <Tab.Screen name="Create-team" component={CreateTeam} />
+        <Tab.Screen name="Teams" component={CreateTeam} />
       </Tab.Navigator>
     </>
   );

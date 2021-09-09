@@ -49,4 +49,18 @@ export const styles = StyleSheet.create({
     padding: 10,
     fontWeight: 'bold',
   },
+  alignmentGood: {
+    backgroundColor: 'green',
+    marginHorizontal: 5,
+    marginRight: 45,
+    padding: 5,
+    borderRadius: 5,
+  },
+  alignmentBad: {
+    backgroundColor: 'red',
+    marginHorizontal: 5,
+    marginRight: 45,
+    padding: 5,
+    borderRadius: 5,
+  },
 });

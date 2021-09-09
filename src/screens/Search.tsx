@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar';
 export default function Search({navigation}) {
   return (
     <View>
-      <SearchBar navigation={navigation} />
+      <SearchBar navigation={navigation} screen="Search" />
     </View>
   );
 }

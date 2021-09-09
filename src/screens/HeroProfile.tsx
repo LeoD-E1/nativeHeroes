@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Text, ScrollView, Image, View} from 'react-native';
 //Style
 import {styles} from '../styles/heroProfile';
@@ -6,10 +6,10 @@ import {Hero} from '../types/hero.types';
 import NavBar from '../components/NavBar';
 
 import {setHeroFavorite} from '../store/heroSlice';
-import {IconButton} from 'react-native-paper';
+import {IconButton, Button} from 'react-native-paper';
 import {useSelector, useDispatch} from 'react-redux';
 
-export default function HeroProfile() {
+export default function HeroProfile({navigation}) {
   const {selectedHero} = useSelector(state => state.heroes);
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ export default function HeroProfile() {
         fontColor={dark}
       />
       {selectedHero.map((item: Hero) => (
-        <ScrollView style={styles.container} key={item.id}>
+        <View style={styles.container} key={item.id}>
           <Image
             style={styles.image}
             source={{
@@ -44,8 +44,14 @@ export default function HeroProfile() {
               />
             </View>
             <Text style={styles.subtitle}>{item.work.occupation}</Text>
+            <Button
+              icon="account-check"
+              mode="outlined"
+              onPress={() => navigation.navigate('Teams')}>
+              Add to Team
+            </Button>
           </ScrollView>
-        </ScrollView>
+        </View>
       ))}
     </>
   );

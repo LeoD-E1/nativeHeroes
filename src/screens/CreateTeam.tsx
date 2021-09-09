@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import ModalCreateTeam from '../components/ModalCreateTeam';
 
-export default function CreateTeam() {
+export default function CreateTeam({navigation, item}) {
   return (
     <View>
-      <Text></Text>
+      <ModalCreateTeam />
     </View>
   );
 }
