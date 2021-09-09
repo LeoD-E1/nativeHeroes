@@ -1,28 +1,20 @@
 import React from 'react';
-import HeroState from './src/context/Heroes/HeroState';
 import {NavigationContainer} from '@react-navigation/native';
-import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import {Provider as PaperProvider} from 'react-native-paper';
+import {Provider} from 'react-redux';
+import store from './src/store/store';
 
 import Navigator from './src/navegation/Navigator';
 
 const App: React.FC = () => {
-  const theme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      primary: 'tomato',
-      accent: 'yellow',
-    },
-  };
-
   return (
-    <HeroState theme={theme}>
+    <Provider store={store}>
       <NavigationContainer>
         <PaperProvider>
           <Navigator />
         </PaperProvider>
       </NavigationContainer>
-    </HeroState>
+    </Provider>
   );
 };
 

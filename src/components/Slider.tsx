@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {View, Pressable, Text, ScrollView, Image} from 'react-native';
 import {styles} from '../styles/slider.styles';
-import {HeroContext} from '../context/Heroes/HeroState';
 import {Hero} from '../types/hero.types';
+import {useSelector} from 'react-redux';
 
 export default function Slider(props: any) {
-  const {heroes} = useContext(HeroContext);
+  const {heroes} = useSelector(state => state.heroes);
 
   const filters = heroes.filter((hero: Hero) => hero.id < 7);
 

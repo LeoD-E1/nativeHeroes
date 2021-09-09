@@ -1,13 +1,13 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {View, TextInput, FlatList} from 'react-native';
 import {styles} from '../styles/searchBar';
-import {HeroContext} from '../context/Heroes/HeroState';
+
 import {Hero} from '../types/hero.types';
 import Element from './Element';
-import Spinner from '../components/Spinner';
+import {useSelector} from 'react-redux';
 
 export default function SearchBar({navigation}: any) {
-  const {heroes} = useContext(HeroContext);
+  const {heroes} = useSelector(state => state.heroes);
 
   const [hero, setHero] = useState<Hero[]>();
 

@@ -1,22 +1,20 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Image, Text, Pressable} from 'react-native';
-import {HeroContext} from '../context/Heroes/HeroState';
 import {styles} from '../styles/searchBar';
+import {useDispatch} from 'react-redux';
+import {getHeroID} from '../store/heroSlice';
 
-//Lo que renderiza la flatlist de herolist
-
-const Element = ({item, navigation}) => {
-  const {getHeroProfile} = useContext(HeroContext);
+const Element = ({item, navigation}: any) => {
+  const dispatch = useDispatch();
 
   return (
     <Pressable
       key={item.id}
       style={styles.results}
       onPress={() => {
-        getHeroProfile(item.id);
-        navigation.navigate('profile');
+        dispatch(getHeroID(item.id));
+        navigation.navigate('Profile');
       }}>
-      <Text style={styles.id}>{item.id}</Text>
       <Image
         style={styles.image}
         source={{

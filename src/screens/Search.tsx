@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import SearchBar from '../components/SearchBar';
 
-export default function Search() {
+export default function Search({navigation}) {
   return (
     <View>
-      <Text></Text>
+      <SearchBar navigation={navigation} />
     </View>
   );
 }

@@ -1,14 +1,18 @@
 import React, {useContext} from 'react';
 import {Text, ScrollView, Image, View} from 'react-native';
-import {HeroContext} from '../context/Heroes/HeroState';
 //Style
 import {styles} from '../styles/heroProfile';
 import {Hero} from '../types/hero.types';
 import NavBar from '../components/NavBar';
+
+import {setHeroFavorite} from '../store/heroSlice';
 import {IconButton} from 'react-native-paper';
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function HeroProfile() {
-  const {selectedHero}: any = useContext(HeroContext);
+  const {selectedHero} = useSelector(state => state.heroes);
+  const dispatch = useDispatch();
+
   const dark = 'dark-content';
   return (
     <>
@@ -36,7 +40,7 @@ export default function HeroProfile() {
                 icon="star"
                 color="#777"
                 size={27}
-                onPress={() => console.log('Pressed')}
+                onPress={() => dispatch(setHeroFavorite(item.id))}
               />
             </View>
             <Text style={styles.subtitle}>{item.work.occupation}</Text>

@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     bottom: 0,
   },
   headerDescription: {
+    padding: 5,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
