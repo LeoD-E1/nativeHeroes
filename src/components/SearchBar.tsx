@@ -33,7 +33,7 @@ export default function SearchBar({navigation, screen}: any) {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Buscar Heroe"
+          placeholder="Search Hero"
           onChangeText={searchName}
           blurOnSubmit
           autoCorrect
