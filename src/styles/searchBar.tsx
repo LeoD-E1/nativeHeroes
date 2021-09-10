@@ -9,27 +9,23 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
   },
   inputContainer: {
-    marginVertical: 10,
+    marginTop: 10,
     marginHorizontal: 10,
     height: 50,
   },
   listContainer: {
     borderRadius: 20,
-    marginHorizontal: 10,
     backgroundColor: '#EBEBED',
     maxHeight: 250,
     marginTop: 5,
   },
   results: {
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  id: {
-    fontWeight: 'bold',
-    alignItems: 'flex-end',
-    marginHorizontal: 5,
-    marginRight: 20,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    marginVertical: 2,
   },
   item: {
     zIndex: 99,
@@ -46,21 +42,25 @@ export const styles = StyleSheet.create({
     width: 45,
     borderRadius: 45,
   },
-  noResult: {
-    padding: 10,
-    fontWeight: 'bold',
+  alignmentNeutral: {
+    backgroundColor: 'gray',
+    marginHorizontal: 5,
+    marginRight: 45,
+    padding: 5,
+    borderRadius: 5,
   },
+
   alignmentGood: {
     backgroundColor: 'green',
     marginHorizontal: 5,
-    marginRight: 45,
+    marginRight: 35,
     padding: 5,
     borderRadius: 5,
   },
   alignmentBad: {
     backgroundColor: 'red',
     marginHorizontal: 5,
-    marginRight: 45,
+    marginRight: 35,
     padding: 5,
     borderRadius: 5,
   },

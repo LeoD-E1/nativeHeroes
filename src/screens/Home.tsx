@@ -38,7 +38,6 @@ export default function Homescreen({navigation}: any) {
         fontColor={dark}
       />
       <Card />
-      <Slider />
     </ScrollView>
   );
 }

@@ -2,8 +2,9 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   containter: {
-    marginTop: 20,
+    marginTop: 10,
     marginVertical: 10,
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 25,
@@ -11,12 +12,11 @@ export const styles = StyleSheet.create({
   },
   sliderContainer: {
     borderRadius: 10,
-    padding: 10,
-    backgroundColor: '#FFF',
+    backgroundColor: '#fff',
   },
   elementContainer: {
     margin: 5,
-    maxHeight: 200,
+    maxHeight: 210,
     width: 150,
     backgroundColor: '#fff',
     borderRadius: 10,
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    height: 150,
+    height: 100,
     width: '100%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -35,11 +35,12 @@ export const styles = StyleSheet.create({
     padding: 5,
   },
   button: {
-    backgroundColor: '#22d3ee',
-    alignSelf: 'flex-start',
+    backgroundColor: '#0891b2',
+    alignSelf: 'center',
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: 3,
+    borderRadius: 5,
+    marginTop: 10,
   },
   buttonText: {
     fontWeight: 'bold',

@@ -1,28 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Modal,
   Portal,
-  Text,
+  Title,
   Button,
   TextInput,
-  Subheading,
+  Caption,
 } from 'react-native-paper';
 import {styles} from '../styles/modal.styles';
 import {Hero} from '../types/hero.types';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {addName, saveTeam} from '../store/teamSlice';
 import SearchBar from './SearchBar';
-import {Image, View, ScrollView} from 'react-native';
+import {Image, View, ScrollView, Text} from 'react-native';
 
 const ModalCreateTeam = ({navigation}: any) => {
-  const [visible, setVisible] = React.useState(false);
-  const {members} = useSelector(state => state.teams);
+  const [visible, setVisible] = useState(false);
+
+  const {members, name} = useSelector(state => state.teams);
+
+  const dispatch = useDispatch();
 
   const goods = members.filter(
     (item: Hero) => item.biography.alignment === 'good',
   );
-
   const bads = members.filter(
     (item: Hero) => item.biography.alignment === 'bad',
+  );
+  const neutral = members.filter(
+    (item: Hero) => item.biography.alignment === 'neutral',
   );
 
   const image = (item: Hero) => (
@@ -36,8 +42,17 @@ const ModalCreateTeam = ({navigation}: any) => {
     </View>
   );
 
+  const onChangeText = (e: string) => {
+    dispatch(addName(e));
+  };
+
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
+
+  const submit = () => {
+    dispatch(saveTeam({members, name}));
+    hideModal();
+  };
 
   return (
     <>
@@ -45,26 +60,48 @@ const ModalCreateTeam = ({navigation}: any) => {
         <Modal
           visible={visible}
           onDismiss={hideModal}
-          contentContainerStyle={styles.container}>
+          contentContainerStyle={styles.modalContainer}>
           <TextInput
-            mode="outlined"
+            mode="flat"
             label="Team Name"
             placeholder="Write a name"
             right={<TextInput.Affix text="/100" />}
+            onChangeText={onChangeText}
           />
+
           <SearchBar screen="Modal" />
-          <Subheading>Goods</Subheading>
-          <ScrollView horizontal>
-            {goods.map((item: Hero) => image(item))}
-          </ScrollView>
-          <Subheading>Bads</Subheading>
-          <ScrollView horizontal>
-            {bads.map((item: Hero) => image(item))}
-          </ScrollView>
+
+          <View style={styles.card}>
+            <Title>{name}</Title>
+            <Title>Goods</Title>
+            <ScrollView horizontal>
+              {goods ? (
+                goods.map((item: Hero) => image(item))
+              ) : (
+                <Caption>No good hero selected!</Caption>
+              )}
+            </ScrollView>
+            <Title>Bads</Title>
+            <ScrollView horizontal>
+              {bads ? (
+                bads.map((item: Hero) => image(item))
+              ) : (
+                <Caption>No bads hero selected!</Caption>
+              )}
+            </ScrollView>
+          </View>
+
+          <Button
+            style={styles.button}
+            icon="account-check"
+            mode="contained"
+            onPress={submit}>
+            Create Team!
+          </Button>
         </Modal>
       </Portal>
-      <Button style={styles.button} onPress={showModal}>
-        Create Team
+      <Button style={styles.button} onPress={showModal} icon="check-bold">
+        <Text style={styles.textButton}>Create a new Team</Text>
       </Button>
     </>
   );

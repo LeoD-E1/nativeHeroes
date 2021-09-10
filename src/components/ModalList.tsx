@@ -11,9 +11,7 @@ const ModalList = ({item}: any) => {
     <Pressable
       key={item.id}
       style={styles.results}
-      onPress={() => {
-        dispatch(addMembers(item));
-      }}>
+      onPress={() => dispatch(addMembers(item))}>
       {item.biography.alignment === 'good' ? (
         <View style={styles.alignmentGood} />
       ) : (

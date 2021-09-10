@@ -6,13 +6,15 @@ const teamSlice = createSlice({
   initialState: {
     teams: [],
     selectedTeam: null,
+    name: '',
     members: [],
   },
   reducers: {
-    saveTeam: (state, action) => {
+    saveTeam: (state: any, action: any) => {
       return {
         ...state,
-        teams: action.payload,
+        teams: [...state.teams, action.payload],
+        name: '',
         members: [],
       };
     },
@@ -25,6 +27,12 @@ const teamSlice = createSlice({
         selectedHero: hero,
       };
     },
+    addName: (state: any, action: any) => {
+      return {
+        ...state,
+        name: action.payload,
+      };
+    },
     addMembers: (state: any, action: any) => {
       return {
         ...state,
@@ -34,5 +42,5 @@ const teamSlice = createSlice({
   },
 });
 
-export const {saveTeam, getTeam, addMembers} = teamSlice.actions;
+export const {saveTeam, getTeam, addMembers, addName} = teamSlice.actions;
 export default teamSlice.reducer;

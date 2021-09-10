@@ -4,29 +4,28 @@ import {styles} from '../styles/slider.styles';
 import {Hero} from '../types/hero.types';
 import {useSelector} from 'react-redux';
 
-export default function Slider(props: any) {
-  const {heroes} = useSelector(state => state.heroes);
+export default function Slider({item, navigation}) {
+  //const {heroes} = useSelector(state => state.heroes);
 
-  const filters = heroes.filter((hero: Hero) => hero.id < 7);
+  //const filters = heroes.filter((hero: Hero) => hero.id < 7);
 
   return (
     <View style={styles.containter}>
-      <Text style={styles.title}>Team Strong</Text>
       <ScrollView horizontal style={styles.sliderContainer}>
-        {filters.map((item: Hero) => (
-          <View style={styles.elementContainer} key={item.id}>
+        {item.map((element: Hero) => (
+          <View style={styles.elementContainer} key={element.id}>
             <Image
               style={styles.image}
               source={{
-                uri: `${item.images.md}`,
+                uri: `${element.images.md}`,
               }}
             />
-            <Text style={styles.text}>{item.biography.fullName}</Text>
+            <Text style={styles.text}>{element.biography.fullName}</Text>
           </View>
         ))}
       </ScrollView>
       <Pressable
-        onPress={() => props.navigation.navigate('teams')}
+        onPress={() => navigation.navigate('TeamDetail')}
         style={styles.button}>
         <Text style={styles.buttonText}>Go to Team</Text>
       </Pressable>
