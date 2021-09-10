@@ -3,15 +3,16 @@ import {ScrollView, Text} from 'react-native';
 import {styles} from '../styles/homescreen';
 
 import NavBar from '../components/NavBar';
-import Slider from '../components/Slider';
+
 import Card from '../components/Card';
 import {axiosTool} from '../helpers/axios';
 import {setHeroes} from '../store/heroSlice';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {Hero} from '../types/hero.types';
 
 export default function Homescreen({navigation}: any) {
   const dispatch = useDispatch();
+  const {favorites} = useSelector(state => state.heroes);
 
   const getHeroes = async () => {
     try {
@@ -37,7 +38,14 @@ export default function Homescreen({navigation}: any) {
         color={styles.container.backgroundColor}
         fontColor={dark}
       />
-      <Card />
+      <Text style={styles.favoritesTitle}>Favorites</Text>
+      {favorites.lenght > 0 ? (
+        favorites.map((item: Hero) => (
+          <Card item={item} navigation={navigation} />
+        ))
+      ) : (
+        <Text>No data about Favorites</Text>
+      )}
     </ScrollView>
   );
 }

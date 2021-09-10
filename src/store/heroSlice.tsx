@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {Hero} from '../types/hero.types';
 
 const heroSlice = createSlice({
   name: 'heroes',
@@ -16,18 +15,15 @@ const heroSlice = createSlice({
       };
     },
     getHeroID: (state: any, action: any) => {
-      const hero = state.heroes.filter(
-        (item: Hero) => item.id === action.payload,
-      );
       return {
         ...state,
-        selectedHero: hero,
+        selectedHero: action.payload,
       };
     },
-    setHeroFavorite: (state, action) => {
+    setHeroFavorite: (state: any, action: any) => {
       return {
         ...state,
-        favorites: action.payload,
+        favorites: [...state.favorites, action.payload],
       };
     },
   },

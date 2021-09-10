@@ -40,7 +40,11 @@ export default function Navigator() {
           name="Home"
           component={Homescreen}
         />
-        <Tab.Screen name="Search" component={ProfileStack} />
+        <Tab.Screen
+          name="Search"
+          component={ProfileStack}
+          options={{headerShown: false}}
+        />
         <Tab.Screen
           name="Teams"
           component={TeamStack}

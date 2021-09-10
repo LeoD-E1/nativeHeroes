@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     width: 375,
     maxWidth: '100%',
+    marginVertical: 5,
   },
   timings: {
     color: '#fff',

@@ -5,8 +5,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 5,
     fontSize: 16,
-    backgroundColor: '#EBEBED',
+    backgroundColor: '#fff',
     borderRadius: 20,
+    borderBottomColor: '#999',
+    borderBottomWidth: 0.5,
   },
   inputContainer: {
     marginTop: 10,
@@ -15,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   listContainer: {
     borderRadius: 20,
-    backgroundColor: '#EBEBED',
+    backgroundColor: '#fff',
     maxHeight: 250,
     marginTop: 5,
   },

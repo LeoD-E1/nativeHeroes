@@ -12,7 +12,7 @@ const Element = ({item, navigation}: any) => {
       key={item.id}
       style={styles.results}
       onPress={() => {
-        dispatch(getHeroID(item.id));
+        dispatch(getHeroID(item));
         navigation.navigate('Profile');
       }}>
       {item.biography.alignment === 'good' ? (

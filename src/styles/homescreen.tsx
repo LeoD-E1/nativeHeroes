@@ -12,4 +12,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end',
   },
+  favoritesTitle: {
+    fontWeight: 'bold',
+    fontSize: 28,
+    marginHorizontal: 15,
+  },
 });

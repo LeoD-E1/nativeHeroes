@@ -93,10 +93,10 @@ const ModalCreateTeam = ({navigation}: any) => {
 
           <Button
             style={styles.button}
-            icon="account-check"
+            icon="check-circle"
             mode="contained"
             onPress={submit}>
-            Create Team!
+            Ok
           </Button>
         </Modal>
       </Portal>

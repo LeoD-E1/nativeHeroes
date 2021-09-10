@@ -12,11 +12,7 @@ export default function ProfileStack() {
         component={Search}
         options={{headerShown: false}}
       />
-      <Stack.Screen
-        name="Profile"
-        component={HeroProfile}
-        options={{headerShown: false}}
-      />
+      <Stack.Screen name="Profile" component={HeroProfile} />
     </Stack.Navigator>
   );
 }
