@@ -13,7 +13,7 @@ export default function CreateTeam({navigation}) {
     <ScrollView>
       <ModalCreateTeam navigation={navigation} />
       <View>
-        {teams.lenght > 0 ? (
+        {teams ? (
           teams.map((item, i) => (
             <View key={i}>
               <View>
