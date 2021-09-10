@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   imageTextContainer: {
     padding: 10,
     flexDirection: 'row',
-    backgroundColor: '#EBEBED',
+    backgroundColor: '#fff',
   },
   image: {
     width: 140,

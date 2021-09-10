@@ -25,7 +25,7 @@ const ModalProfileHero = ({item}: any) => {
               }}
             />
             <View>
-              <Text style={styles.nameTitle}>{item.biography.fullName}</Text>
+              <Text style={styles.nameTitle}>{item.biography.fullName} </Text>
               <Text style={styles.aliasTitle}>{item.biography.aliases[0]}</Text>
               <Appearance item={item.appearance} />
             </View>

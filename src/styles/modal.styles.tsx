@@ -2,7 +2,8 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   button: {
-    marginTop: 10,
+    marginVertical: 15,
+    marginHorizontal: 10,
     backgroundColor: '#0891b2',
     alignSelf: 'flex-end',
   },

@@ -39,8 +39,8 @@ export default function Homescreen({navigation}: any) {
         fontColor={dark}
       />
       <Text style={styles.favoritesTitle}>Favorites</Text>
-      {favorites.map((item: Hero) => (
-        <Card item={item} navigation={navigation} />
+      {favorites.map((item: Hero, i: number) => (
+        <Card item={item} navigation={navigation} key={i} />
       ))}
     </ScrollView>
   );

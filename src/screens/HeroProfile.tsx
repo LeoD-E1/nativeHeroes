@@ -4,10 +4,9 @@ import {Text, ScrollView, Image, View} from 'react-native';
 import {styles} from '../styles/heroProfile';
 import {Hero} from '../types/hero.types';
 import NavBar from '../components/NavBar';
-import Stats from '../components/heroProfile/Stats';
 
 import {setHeroFavorite} from '../store/heroSlice';
-import {IconButton, Button, ProgressBar} from 'react-native-paper';
+import {IconButton, Button} from 'react-native-paper';
 import {useSelector, useDispatch} from 'react-redux';
 import Appearance from '../components/heroProfile/Appearance';
 

@@ -6,7 +6,7 @@ import Slider from '../components/Slider';
 
 import {useSelector} from 'react-redux';
 
-export default function CreateTeam({navigation}) {
+export default function CreateTeam({navigation}: any) {
   const {teams} = useSelector(state => state.teams);
 
   return (
@@ -17,7 +17,9 @@ export default function CreateTeam({navigation}) {
           teams.map((item, i) => (
             <View key={i}>
               <View>
-                <Text style={styles.titleText}> Team {item.name}</Text>
+                <View>
+                  <Text style={styles.titleText}> Team {item.name}</Text>
+                </View>
                 <Slider item={item.members} navigation={navigation} />
               </View>
             </View>

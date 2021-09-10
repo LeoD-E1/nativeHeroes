@@ -2,14 +2,12 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // Screens
 
-import TeamDetail from '../screens/TeamDetail';
 import Search from '../screens/Search';
 import CreateTeam from '../screens/CreateTeam';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Homescreen from '../screens/Home';
 //Stacks
 import ProfileStack from './ProfileStack';
-import TeamStack from './TeamStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +30,7 @@ export default function Navigator() {
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: '#333',
+          tabBarActiveTintColor: '#0891b2',
           tabBarInactiveTintColor: '#999',
         })}>
         <Tab.Screen
@@ -47,7 +45,7 @@ export default function Navigator() {
         />
         <Tab.Screen
           name="Teams"
-          component={TeamStack}
+          component={CreateTeam}
           options={{headerShown: false}}
         />
       </Tab.Navigator>

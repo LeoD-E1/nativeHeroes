@@ -96,12 +96,12 @@ const ModalCreateTeam = ({navigation}: any) => {
             icon="check-circle"
             mode="contained"
             onPress={submit}>
-            Ok
+            Create
           </Button>
         </Modal>
       </Portal>
-      <Button style={styles.button} onPress={showModal} icon="check-bold">
-        <Text style={styles.textButton}>Create a new Team</Text>
+      <Button style={styles.button} onPress={showModal}>
+        <Text style={styles.textButton}>Create team</Text>
       </Button>
     </>
   );
