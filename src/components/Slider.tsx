@@ -2,13 +2,9 @@ import React from 'react';
 import {View, Pressable, Text, ScrollView, Image} from 'react-native';
 import {styles} from '../styles/slider.styles';
 import {Hero} from '../types/hero.types';
-import {useSelector} from 'react-redux';
+import ModalProfileHero from './ModalProfileHero';
 
-export default function Slider({item, navigation}) {
-  //const {heroes} = useSelector(state => state.heroes);
-
-  //const filters = heroes.filter((hero: Hero) => hero.id < 7);
-
+export default function Slider({item}: any) {
   return (
     <View style={styles.containter}>
       <ScrollView horizontal style={styles.sliderContainer}>
@@ -20,15 +16,10 @@ export default function Slider({item, navigation}) {
                 uri: `${element.images.md}`,
               }}
             />
-            <Text style={styles.text}>{element.biography.fullName}</Text>
+            <ModalProfileHero item={element} />
           </View>
         ))}
       </ScrollView>
-      <Pressable
-        onPress={() => navigation.navigate('TeamDetail')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Go to Team</Text>
-      </Pressable>
     </View>
   );
 }
