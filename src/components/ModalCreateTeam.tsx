@@ -75,7 +75,7 @@ const ModalCreateTeam = () => {
 
           <View style={styles.card}>
             <Title>{name}</Title>
-            <Title>Goods</Title>
+            <Title>Hero</Title>
             <ScrollView horizontal>
               {goods ? (
                 goods.map((item: Hero) => image(item))
@@ -83,7 +83,7 @@ const ModalCreateTeam = () => {
                 <Caption>No good hero selected!</Caption>
               )}
             </ScrollView>
-            <Title>Bads</Title>
+            <Title>Villian</Title>
             <ScrollView horizontal>
               {bads ? (
                 bads.map((item: Hero) => image(item))

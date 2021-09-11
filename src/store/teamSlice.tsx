@@ -55,10 +55,9 @@ const teamSlice = createSlice({
         },
       };
     },
-    deleteMemberTeam: (state, action: PayloadAction<string>) => {},
+    /* deleteMemberTeam: (state, action: PayloadAction<string>) => {}, */
   },
 });
 
-export const {saveTeam, addMembers, addName, deleteMemberTeam} =
-  teamSlice.actions;
+export const {saveTeam, addMembers, addName} = teamSlice.actions;
 export default teamSlice.reducer;
