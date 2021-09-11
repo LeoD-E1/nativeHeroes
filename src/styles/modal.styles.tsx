@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     margin: 3,
   },
   card: {
-    backgroundColor: '#EBEBED',
+    backgroundColor: '#fff',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',

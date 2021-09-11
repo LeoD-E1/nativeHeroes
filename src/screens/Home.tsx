@@ -6,19 +6,19 @@ import NavBar from '../components/NavBar';
 
 import Card from '../components/Card';
 import {axiosTool} from '../helpers/axios';
+// redux
 import {setHeroes} from '../store/heroSlice';
-import {useDispatch, useSelector} from 'react-redux';
-import {Hero} from '../types/hero.types';
+import {useAppDispatch, useAppSelector} from '../typescript/hooks';
+import {Hero} from '../typescript/types/hero.types';
 
 export default function Homescreen({navigation}: any) {
-  const dispatch = useDispatch();
-  const {favorites} = useSelector(state => state.heroes);
+  const dispatch = useAppDispatch();
+  const {favorites} = useAppSelector(state => state.heroes);
 
   const getHeroes = async () => {
     try {
       const {data} = await axiosTool.get('/all.json');
-      const hero: Hero = data;
-      dispatch(setHeroes(hero));
+      dispatch(setHeroes(data));
     } catch (error) {
       console.log(error);
     }

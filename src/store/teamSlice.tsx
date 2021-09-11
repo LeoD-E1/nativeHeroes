@@ -1,46 +1,64 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {Hero} from '../types/hero.types';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {Hero} from '../typescript/types/hero.types';
+import {Team} from '../typescript/types/team.types';
 
-const teamSlice = createSlice({
-  name: 'teams',
-  initialState: {
-    teams: [],
-    selectedTeam: null,
+interface InitialState {
+  teams: Team[];
+  selectedTeam: null | Team;
+  team: Team;
+}
+
+const initialState: InitialState = {
+  teams: [],
+  selectedTeam: null,
+  team: {
+    id: '',
     name: '',
     members: [],
   },
+};
+
+const teamSlice = createSlice({
+  name: 'teams',
+  initialState,
   reducers: {
-    saveTeam: (state: any, action: any) => {
+    saveTeam: (state, action: PayloadAction<Team>) => {
       return {
         ...state,
         teams: [...state.teams, action.payload],
-        name: '',
-        members: [],
+        team: {
+          id: '',
+          name: '',
+          members: [],
+        },
       };
     },
-    getTeam: (state: any, action: any) => {
-      const hero = state.heroes.filter(
-        (item: Hero) => item.id === action.payload,
-      );
+
+    addName: (state, action: PayloadAction<string>) => {
       return {
         ...state,
-        selectedHero: hero,
+        team: {
+          id: state.team.id,
+          name: action.payload,
+          members: [...state.team.members],
+        },
       };
     },
-    addName: (state: any, action: any) => {
+
+    addMembers: (state, action: PayloadAction<Hero>) => {
       return {
         ...state,
-        name: action.payload,
+        team: {
+          id: state.team.id,
+          name: state.team.name,
+          members: [...state.team.members, action.payload],
+        },
       };
     },
-    addMembers: (state: any, action: any) => {
-      return {
-        ...state,
-        members: [...state.members, action.payload],
-      };
-    },
+    deleteMemberTeam: (state, action: PayloadAction<string>) => {},
   },
 });
 
-export const {saveTeam, getTeam, addMembers, addName} = teamSlice.actions;
+export const {saveTeam, addMembers, addName, deleteMemberTeam} =
+  teamSlice.actions;
 export default teamSlice.reducer;

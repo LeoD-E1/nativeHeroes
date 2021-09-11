@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {View, TextInput} from 'react-native';
 import {styles} from '../styles/searchBar';
 
-import {Hero} from '../types/hero.types';
+import {Hero} from '../typescript/types/hero.types';
 import HeroList from './HeroList';
 
-import {useSelector} from 'react-redux';
+import {useAppSelector} from '../typescript/hooks';
 
 export default function SearchBar({navigation, screen}: any) {
-  const {heroes} = useSelector(state => state.heroes);
+  const {heroes} = useAppSelector(state => state.heroes);
 
   const [hero, setHero] = useState<Hero[]>();
 

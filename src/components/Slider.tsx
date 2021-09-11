@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Pressable, Text, ScrollView, Image} from 'react-native';
 import {styles} from '../styles/slider.styles';
-import {Hero} from '../types/hero.types';
+import {Hero} from '../typescript/types/hero.types';
 import ModalProfileHero from './ModalProfileHero';
 
 export default function Slider({item}: any) {

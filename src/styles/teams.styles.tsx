@@ -12,5 +12,10 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     marginHorizontal: 5,
+    alignSelf: 'flex-start',
+  },
+  editTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

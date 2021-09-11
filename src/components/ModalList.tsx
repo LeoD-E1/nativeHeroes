@@ -1,11 +1,11 @@
 import React from 'react';
 import {Image, Text, Pressable, View} from 'react-native';
 import {styles} from '../styles/searchBar';
-import {useDispatch} from 'react-redux';
+import {useAppDispatch} from '../typescript/hooks';
 import {addMembers} from '../store/teamSlice';
 
 const ModalList = ({item}: any) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <Pressable

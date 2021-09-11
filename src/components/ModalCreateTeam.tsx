@@ -7,19 +7,23 @@ import {
   TextInput,
   Caption,
 } from 'react-native-paper';
-import {styles} from '../styles/modal.styles';
-import {Hero} from '../types/hero.types';
-import {useSelector, useDispatch} from 'react-redux';
-import {addName, saveTeam} from '../store/teamSlice';
-import SearchBar from './SearchBar';
 import {Image, View, ScrollView, Text} from 'react-native';
+import uuid from 'react-native-uuid';
+//Style
+import {styles} from '../styles/modal.styles';
+//Components
+import SearchBar from './SearchBar';
+//Types
+import {Hero} from '../typescript/types/hero.types';
+//Redux
+import {useAppSelector, useAppDispatch} from '../typescript/hooks';
+import {addName, saveTeam} from '../store/teamSlice';
 
-const ModalCreateTeam = ({navigation}: any) => {
+const ModalCreateTeam = () => {
   const [visible, setVisible] = useState(false);
 
-  const {members, name} = useSelector(state => state.teams);
-
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const {members, name} = useAppSelector(state => state.teams.team);
 
   const goods = members.filter(
     (item: Hero) => item.biography.alignment === 'good',
@@ -27,9 +31,9 @@ const ModalCreateTeam = ({navigation}: any) => {
   const bads = members.filter(
     (item: Hero) => item.biography.alignment === 'bad',
   );
-  const neutral = members.filter(
+  /* const neutral = members.filter(
     (item: Hero) => item.biography.alignment === 'neutral',
-  );
+  ); */
 
   const image = (item: Hero) => (
     <View key={item.id}>
@@ -50,7 +54,7 @@ const ModalCreateTeam = ({navigation}: any) => {
   const hideModal = () => setVisible(false);
 
   const submit = () => {
-    dispatch(saveTeam({members, name}));
+    dispatch(saveTeam({id: uuid.v4(), members, name}));
     hideModal();
   };
 
@@ -64,12 +68,10 @@ const ModalCreateTeam = ({navigation}: any) => {
           <TextInput
             mode="flat"
             label="Team Name"
-            placeholder="Write a name"
+            placeholder="Your team name"
             right={<TextInput.Affix text="/100" />}
             onChangeText={onChangeText}
           />
-
-          <SearchBar screen="Modal" />
 
           <View style={styles.card}>
             <Title>{name}</Title>
@@ -90,6 +92,8 @@ const ModalCreateTeam = ({navigation}: any) => {
               )}
             </ScrollView>
           </View>
+
+          <SearchBar screen="Modal" />
 
           <Button
             style={styles.button}

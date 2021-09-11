@@ -1,12 +1,15 @@
 import * as React from 'react';
-import {Modal, Portal} from 'react-native-paper';
+import {Modal, Portal, IconButton} from 'react-native-paper';
 import {Text, Image, View} from 'react-native';
 import {styles} from '../styles/ModalProfile.styles';
 import Appearance from './heroProfile/Appearance';
 
+import {useDispatch} from 'react-redux';
+import {deleteMemberTeam} from '../store/teamSlice';
+
 const ModalProfileHero = ({item}: any) => {
   const [visible, setVisible] = React.useState(false);
-
+  const dispatch = useDispatch();
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
 
@@ -30,6 +33,13 @@ const ModalProfileHero = ({item}: any) => {
               <Appearance item={item.appearance} />
             </View>
           </View>
+          <IconButton
+            style={styles.iconDelete}
+            icon="delete"
+            color="#999"
+            size={30}
+            onPress={() => dispatch(deleteMemberTeam(item.id))}
+          />
         </Modal>
       </Portal>
       <Text style={styles.name} onPress={showModal}>

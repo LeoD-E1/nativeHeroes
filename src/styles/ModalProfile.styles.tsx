@@ -44,4 +44,9 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     paddingHorizontal: 10,
   },
+  iconDelete: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+  },
 });
